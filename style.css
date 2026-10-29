@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fce5f5;
+    font-family: "Great Vibes", cursive;
+}
+
+header{
+    padding: 30px 0 15px 0;
+    text-align: center;
+}
+
+h1{
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+p{
+    font-size: 20px;
+    color: #666;
+}
+
+p:hover{
+    text-decoration: underline;
+}
+
+/* Filtros */
+
+.filtros{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filtro{
+    padding: 12px 24px;
+    border: 1px solid #d1d3db;
+    border-radius: 25px;
+
+    background-color: #fff;
+    color: #333333;
+
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtro:hover{
+    background: #dbeafe;
+}
+
+.filtro.ativo{
+    background: #bf76b2;
+    color: #fff;
+    border-color: #222;
+}
+
+.total{
+    text-align: center;
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+/* Grid Mosaico */
+
+.galeria{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 150px;
+    grid-auto-flow: dense;
+    gap: 20px;
+
+    max-width: 1100px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+/* Quando um artista estiver selecionado */
+.galeria.filtrada {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 300px;
+    grid-auto-flow: row;
+}
+
+/* Todas as imagens ficam do mesmo tamanho */
+.galeria.filtrada .miniatura {
+    width: 100%;
+    height: 250px;
+    grid-column: span 1;
+    grid-row: span 1;
+    object-fit: cover;
+}
+
+.miniatura{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.miniatura:hover{
+    transform: scale(1.05);
+    box-shadow: -1 9px 20px 2px #000000;
+}
+
+.miniatura:focus-visible{
+    outline: 3px solid #000000;
+}
+
+.destaque{
+    grid-column: span 2; 
+    grid-row: span 2;
+    width: 95%;
+    height: 331px;
+}
+
+.horizontal{
+    grid-column: span 2;
+}
+
+.vertical{
+    grid-row: span 2;
+}
+
+/* Imagens ocultas pelo filtro */
+
+.miniatura.oculta{
+    display: none;
+}
+
+/* Modal */
+
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+
+    justify-content: center;
+    align-items: center;
+    padding: 60px 70px;
+}
+
+.modal.ativo{
+    display: flex;
+}
+
+.modal-conteudo {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: aparecer 0.3s ease;
+}
+/* Animação Modal */
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-conteudo img {
+    display: block;
+    max-width: 100%;
+    max-height: 70vh; 
+    object-fit: contain;
+}
+
+/* Legenda canto inferior */
+
+.legenda {
+    position: relative; 
+    width: 100%; 
+    
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+
+    padding: 15px 20px;
+    font-size: 18px;
+}
+
+.legenda h2{
+    font-family: "Great Vibes", cursive;
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+}
+
+.legenda p{
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    margin: 0;
+}
+
+.legenda strong{
+    color: #fce5f5;
+}
+
+.legenda span{
+    color: #fff;
+}
+
+/* Fechar */
+.fechar{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+ 
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1001;
+}
+ 
+.fechar:hover{
+color: #8d0000;
+}
+
+/* Botões de navegação */
+.navegacao{
+    position: absolute;
+    top: 50%;
+
+    border: none;
+    background-color: rgba(255, 255, 255, 0.15);
+
+    color: #fff;
+    font-size: 35px;
+
+    padding: 12px 18px;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.navegacao:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.anterior{
+    left: 15px;
+}
+
+.proximo{
+    right: 15px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+
+.galeria {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 130px;
+    gap: 15px;
+}
+
+.destaque {
+    height: auto;
+    width: 100%;
+}
+
+.modal {
+    padding: 50px 40px;
+}
+}
+
+/* celular */
+@media (max-width: 600px) {
+h1 {
+    font-size: 36px;
+}
+
+.filtros {
+    gap: 8px;
+    padding: 0 10px;
+}
+
+.filtro {
+    padding: 10px 16px;
+    font-size: 13px;
+}
+
+.galeria {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 120px;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+/* mosaico celular */
+.destaque {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+    height: 250px;
+}
+
+.horizontal {
+    grid-column: span 2;
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+/* Imagens com o msm tamanho no filtro */
+.galeria.filtrada {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 180px;
+}
+
+.galeria.filtrada .miniatura {
+    grid-column: span 1;
+    grid-row: span 1;
+    width: 100%;
+    height: 180px;
+}
+
+/* Modal */
+.modal {
+    padding: 50px 10px 20px;
+}
+
+.modal-conteudo {
+    max-width: 100%;
+    width: 100%;
+}
+
+.modal-conteudo img {
+    max-width: 100%;
+    max-height: 65vh;
+}
+
+.legenda {
+    padding: 10px;
+    gap: 5px;
+}
+
+.legenda h2 {
+    font-size: 25px;
+}
+
+.legenda p {
+    font-size: 13px;
+}
+
+.fechar {
+    top: 8px;
+    right: 12px;
+    font-size: 32px;
+}
+
+.navegacao {
+    font-size: 25px;
+    padding: 8px 12px;
+}
+
+.anterior {
+    left: 5px;
+}
+
+.proximo {
+    right: 5px;
+}
+}

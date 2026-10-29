@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de imagens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Galeria de imagens</h1>
+        <p>Clique em uma imagem para ampliar</p>
+    </header>
+
+     <!-- Filtros -->
+      <!-- Filtros -->
+     <nav class="filtros">
+        <button
+        class="filtro ativo"
+        data-filtro="todas"
+        >
+            Todas
+        </button>
+ 
+        <button
+        class="filtro"
+        data-filtro="Jean-Honoré Fragonard"
+        >
+          Jean-Honoré Fragonard
+        </button>
+ 
+        <button
+        class="filtro"
+        data-filtro="Vincent van Gogh"
+        >
+           Vincent van Gogh
+        </button>
+ 
+         <button
+        class="filtro"
+        data-filtro="Gustav Klimt"
+        >
+           Gustav Klimt
+        </button>
+
+        <button
+        class="filtro"
+        data-filtro="Leonardo da Vinci"
+        >
+           Leonardo da Vinci
+        </button>
+
+        <button
+        class="filtro"
+        data-filtro="Claude Monet"
+        >
+           Claude Monet
+        </button>
+ 
+     </nav>
+
+     <p id="totalImagens" class="total"></p>
+
+    <main class="galeria">
+        <img
+            src="./img/foto1.jpg"
+            alt="O Balanço"
+            class="miniatura destaque"
+            data-categoria="Jean-Honoré Fragonard"
+            data-titulo="O Balanço"
+            data-ano="1767"
+            data-autor="Jean-Honoré Fragonard"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto2.jpg"
+            alt="A Noite Estrelada"
+            class="miniatura horizontal"
+            data-categoria="Vincent van Gogh"
+            data-titulo="A Noite Estrelada"
+            data-ano="1889"
+            data-autor="Vincent van Gogh"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto3.jpg"
+            alt="Mona Lisa"
+            class="miniatura"
+            data-categoria="Leonardo da Vinci"
+            data-titulo="Mona Lisa"
+            data-ano="1503–1506"
+            data-autor="Leonardo da Vinci"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto4.jpg"
+            alt="O Beijo"
+            class="miniatura vertical"
+            data-categoria="Gustav Klimt"
+            data-titulo="O Beijo"
+            data-ano="1907–1908"
+            data-autor="Gustav Klimt"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto5.jpg"
+            alt="A Pastora"
+            class="miniatura"
+            data-categoria="Jean-Honoré Fragonard"
+            data-titulo="A pastora"
+            data-ano="1750"
+            data-autor="Jean-Honoré Fragonard"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto6.jpg"
+            alt="A Última Ceia"
+            class="miniatura horizontal"
+            data-categoria="Leonardo da Vinci"
+            data-titulo="A Última Ceia"
+            data-ano="1495–1498	"
+            data-autor="Leonardo da Vinci"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto7.jpg"
+            alt="Ninféias com ramos de salgueiro"
+            class="miniatura"
+            data-categoria="Claude Monet"
+            data-titulo="Ninféias com ramos de salgueiro"
+            data-ano="1916–1919"
+            data-autor="Claude Monet"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto8.jpg"
+            alt="Amendoeira em Flor"
+            class="miniatura"
+            data-categoria="Vincent van Gogh"
+            data-titulo="Amendoeira em Flor"
+            data-ano="1890"
+            data-autor="Vincent van Gogh"
+            tabindex="0"
+        >
+
+        <img
+            src="./img/foto9.jpg"
+            alt="Caminhada no Penhasco em Pourville"
+            class="miniatura horizontal"
+            data-categoria="Claude Monet"
+            data-titulo="Caminhada no Penhasco em Pourville"
+            data-ano="1882"
+            data-autor="Claude Monet"
+            tabindex="0"
+        >
+    </main>
+
+    <!-- Modal -->
+    <div
+        id="modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Visualizador de imagens"
+        aria-hidden="true"
+    >
+
+        <button
+            id="fechar"
+            class="fechar"
+            aria-label="Fechar Imagem"
+        >
+            &times;
+        </button>
+
+        <button
+            id="anterior"
+            class="navegacao anterior"
+            aria-label="Imagem Anterior"
+        >
+            &#10094;
+        </button>
+
+        <div class="modal-conteudo">
+            <img
+                src=""
+                alt=""
+                id="imagemModal"
+            >
+
+            <div class="legenda">
+                <span id="contador"></span>
+
+                <h2 id="nomeImagem"></h2>
+                <p>
+                    <strong>Artista:</strong>
+                    <span id="autorImagem"></span>
+                </p>
+                
+                <p>
+                    <strong>Ano:</strong>
+                    <span id="anoImagem"></span>
+                </p>
+            </div>
+        </div>
+
+        <button
+            id="proximo"
+            class="navegacao proximo"
+            aria-label="Próxima imagem"
+        >
+            &#10095;
+        </button>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
